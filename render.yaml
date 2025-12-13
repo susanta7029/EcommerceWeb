@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ecommerce-app
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn ecommerce.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.6
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        sync: false

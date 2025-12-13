@@ -1,0 +1,83 @@
+# NRPE Configuration Template for Puppet
+# This template is used to configure NRPE on slave nodes
+
+log_facility=daemon
+pid_file=/var/run/nagios/nrpe.pid
+server_port=5666
+nrpe_user=nagios
+nrpe_group=nagios
+
+# Allow connections from localhost and Nagios master
+allowed_hosts=127.0.0.1,<%= @master_ip %>
+
+# Security settings
+dont_blame_nrpe=0
+allow_bash_command_substitution=0
+debug=0
+command_timeout=60
+connection_timeout=300
+
+# SSL/TLS settings (optional - enable for encrypted communication)
+# ssl_version=TLSv1.2+
+# ssl_cipher_list=ALL:!MD5:@STRENGTH
+# ssl_cacert_file=/etc/ssl/certs/ca-certificates.crt
+# ssl_cert_file=/etc/ssl/certs/nagios-cert.pem
+# ssl_privatekey_file=/etc/ssl/private/nagios-key.pem
+
+# Command definitions for monitoring
+
+# CPU Load Check
+# Warning: 15,10,5 (1min, 5min, 15min load average)
+# Critical: 30,25,20
+command[check_load]=/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20
+
+# Disk Usage Check
+# Warning: 20% free space remaining
+# Critical: 10% free space remaining
+command[check_disk]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /
+
+# Root partition disk check
+command[check_disk_root]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /
+
+# All partitions disk check
+command[check_all_disks]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10%
+
+# Memory Usage Check (custom script)
+# Warning: 80% used
+# Critical: 90% used
+command[check_mem]=/usr/local/bin/check_mem.sh
+
+# CPU Usage Check (custom script)
+# Warning: 80% used
+# Critical: 90% used
+command[check_cpu]=/usr/local/bin/check_cpu.sh
+
+# Process Count Check
+command[check_procs]=/usr/lib/nagios/plugins/check_procs -w 250 -c 400
+
+# Current Users Check
+command[check_users]=/usr/lib/nagios/plugins/check_users -w 5 -c 10
+
+# Swap Usage Check
+command[check_swap]=/usr/lib/nagios/plugins/check_swap -w 20% -c 10%
+
+# System Uptime Check
+command[check_uptime]=/usr/lib/nagios/plugins/check_uptime
+
+# Total Processes
+command[check_total_procs]=/usr/lib/nagios/plugins/check_procs -w 150 -c 200
+
+# Zombie Processes
+command[check_zombie_procs]=/usr/lib/nagios/plugins/check_procs -w 5 -c 10 -s Z
+
+# SSH Service Check
+command[check_ssh]=/usr/lib/nagios/plugins/check_ssh localhost
+
+# HTTP Service Check (if web server is installed)
+# command[check_http]=/usr/lib/nagios/plugins/check_http -I 127.0.0.1
+
+# Network Interface Check (eth0)
+# command[check_eth0]=/usr/lib/nagios/plugins/check_ifoperstatus -H localhost -k eth0
+
+# System Time Check
+command[check_time]=/usr/lib/nagios/plugins/check_time -H 127.0.0.1 -w 30 -c 60
