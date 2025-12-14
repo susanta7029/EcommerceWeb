@@ -39,7 +39,11 @@
 </nav>
 <div class="container">
     <div class="product-detail-card p-4">
+        {% if product.image %}
         <img src="{{ product.image.url }}" class="product-img-lg mb-4" alt="{{ product.name }}">
+        {% else %}
+        <img src="https://via.placeholder.com/600x400?text={{ product.name }}" class="product-img-lg mb-4" alt="{{ product.name }}">
+        {% endif %}
         <h2>{{ product.name }}</h2>
         <h5 class="text-muted">Category: {{ product.category|capfirst }}</h5>
         <h4 class="text-success">₹{{ product.price }}</h4>
