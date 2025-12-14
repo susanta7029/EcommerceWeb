@@ -1,0 +1,83 @@
+[
+  {
+    "model": "store.category",
+    "pk": 1,
+    "fields": {
+      "name": "Electronics"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 2,
+    "fields": {
+      "name": "Clothing"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 3,
+    "fields": {
+      "name": "Books"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 1,
+    "fields": {
+      "name": "Wireless Headphones",
+      "price": "79.99",
+      "description": "High-quality wireless headphones with noise cancellation",
+      "image": "",
+      "category": 1,
+      "stock": 50
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 2,
+    "fields": {
+      "name": "Smart Watch",
+      "price": "199.99",
+      "description": "Fitness tracker with heart rate monitor",
+      "image": "",
+      "category": 1,
+      "stock": 30
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 3,
+    "fields": {
+      "name": "Cotton T-Shirt",
+      "price": "24.99",
+      "description": "Comfortable cotton t-shirt available in multiple colors",
+      "image": "",
+      "category": 2,
+      "stock": 100
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 4,
+    "fields": {
+      "name": "Denim Jeans",
+      "price": "49.99",
+      "description": "Classic fit denim jeans",
+      "image": "",
+      "category": 2,
+      "stock": 75
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 5,
+    "fields": {
+      "name": "Python Programming Guide",
+      "price": "34.99",
+      "description": "Complete guide to Python programming for beginners",
+      "image": "",
+      "category": 3,
+      "stock": 40
+    }
+  }
+]
