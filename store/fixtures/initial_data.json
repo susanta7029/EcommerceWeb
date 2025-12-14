@@ -1,26 +1,5 @@
 [
   {
-    "model": "store.category",
-    "pk": 1,
-    "fields": {
-      "name": "Electronics"
-    }
-  },
-  {
-    "model": "store.category",
-    "pk": 2,
-    "fields": {
-      "name": "Clothing"
-    }
-  },
-  {
-    "model": "store.category",
-    "pk": 3,
-    "fields": {
-      "name": "Books"
-    }
-  },
-  {
     "model": "store.product",
     "pk": 1,
     "fields": {
@@ -28,8 +7,7 @@
       "price": "79.99",
       "description": "High-quality wireless headphones with noise cancellation",
       "image": "",
-      "category": 1,
-      "stock": 50
+      "category": "electronics"
     }
   },
   {
@@ -40,8 +18,7 @@
       "price": "199.99",
       "description": "Fitness tracker with heart rate monitor",
       "image": "",
-      "category": 1,
-      "stock": 30
+      "category": "electronics"
     }
   },
   {
@@ -52,8 +29,7 @@
       "price": "24.99",
       "description": "Comfortable cotton t-shirt available in multiple colors",
       "image": "",
-      "category": 2,
-      "stock": 100
+      "category": "clothing"
     }
   },
   {
@@ -64,8 +40,7 @@
       "price": "49.99",
       "description": "Classic fit denim jeans",
       "image": "",
-      "category": 2,
-      "stock": 75
+      "category": "clothing"
     }
   },
   {
@@ -76,8 +51,18 @@
       "price": "34.99",
       "description": "Complete guide to Python programming for beginners",
       "image": "",
-      "category": 3,
-      "stock": 40
+      "category": "books"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 6,
+    "fields": {
+      "name": "Organic Coffee Beans",
+      "price": "19.99",
+      "description": "Premium organic coffee beans, medium roast",
+      "image": "",
+      "category": "grocery"
     }
   }
 ]
